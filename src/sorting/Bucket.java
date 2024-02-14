@@ -2,7 +2,6 @@ package sorting;
 
 public class Bucket extends ISorting {
     private int range = 10;
-    
     private Bucket(int[] array) {
         super(array);
     }
@@ -14,8 +13,8 @@ public class Bucket extends ISorting {
     // Creates buckets with range of values and places the values to be sorted in each bucket
     // corresponding to its range, and then each bucket also has to be sorted
     public int[] sort() {
-        int[][] buckets = new int[10][];
-        int[] bucketIndexCounting = new int[10];
+        int[][] buckets = new int[range][];
+        int[] bucketIndexCounting = new int[range];
 
         for (int i = 0; i < buckets.length; i++)
             buckets[i] = new int[array.length];

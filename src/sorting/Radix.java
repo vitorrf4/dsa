@@ -8,37 +8,38 @@ public class Radix extends ISorting {
     // Sorts the elements by grouping the individual digits of the same
     // decimal place and then sorting them in increasing/decreasing order
     public int[] sort() {
-        return countingRadix(array, array.length, 10);
-    }
-    
-    private int[] countingRadix(int[] array, int length, int decimalPlace) {
-        int max = getMax();
-        int[] count = new int[max + 1];
-        int[] result = new int[length + 1];
-
-        for (int i = 0; i < length; i++)
-            count[(array[i] / decimalPlace) % 10]++;
-
-        for (int i = 1; i < 10; i++)
-            count[i] += count[i - 1];
-
-        for (int i = length - 1; i >= 0; i--) {
-            result[count[(array[i] / decimalPlace) % 10] - 1] = array[i];
-            count[(array[i] / decimalPlace) % 10]--;
-        }
-
-        for (int i = 0; i < length; i++)
-            array[i] = result[i];
-        
-        return count;
+        return radixSort(array);
     }
 
-    public void radixSort(int[] array) {
+    private int[] radixSort(int[] array) {
         int max = getMax();
 
         for (int decimalPlace = 1; max / decimalPlace > 0; decimalPlace *= 10) {
             countingRadix(array, array.length, decimalPlace);
         }
+        return array;
     }
+    
+    private void countingRadix(int[] array, int length, int exponent) {
+        int max = getMax();
+        int[] count = new int[max + 1];
+        int[] result = new int[length + 1];
+
+        for (int i = 0; i < length; i++)
+            count[(array[i] / exponent) % 10]++;
+
+        for (int i = 1; i < 10; i++)
+            count[i] += count[i - 1];
+
+        for (int i = length - 1; i >= 0; i--) {
+            result[count[(array[i] / exponent) % 10] - 1] = array[i];
+            count[(array[i] / exponent) % 10]--;
+        }
+
+        for (int i = 0; i < length; i++)
+            array[i] = result[i];
+
+    }
+
 
 }

@@ -1,19 +1,16 @@
 import sorting.*;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        var max = 30000;
+        var max = 100000000;
         var array = new int[max];
         for (int i = 0; i < max; i++) {
-            array[i] = (int)(Math.random() * 5000);
+            array[i] = (int)(Math.random() * 100000);
         }
 
-        var sortAlghorithm = new Quick(array);
+        var sortAlghorithm = new Merge(array, 0, array.length - 1);
         var time = sortAlghorithm.sortAndGetDurationInMs();
-
+        
         System.out.println("Is sorted: " + sortAlghorithm.IsSorted());
         System.out.println("sorting took " + time + " miliseconds");
     }

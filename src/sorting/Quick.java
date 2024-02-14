@@ -24,25 +24,23 @@ public class Quick extends ISorting {
         return array;
     }
 
-    private int partition(int[] array, int leftmost, int rightmost) {
-        int pivot = array[rightmost];
-        int pivotFinalPosition = leftmost;
-
-        for (int comparrision = leftmost; comparrision < rightmost; comparrision++) {
-            if (array[comparrision] < pivot) {
-                int aux = array[comparrision];
-                array[comparrision] = array[pivotFinalPosition];
-                array[pivotFinalPosition] = aux;
-
-                pivotFinalPosition++;
-                comparrision = pivotFinalPosition;
+    private int partition(int[] array, int start, int end) {
+        int pivot = array[end];
+        int i = start - 1;
+        for (int j = start; j < end; j++) {
+            if (array[j] < pivot) {
+                i++;
+                
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
-
-        int aux = array[pivotFinalPosition];
-        array[pivotFinalPosition] = pivot;
-        array[rightmost] = aux;
-
-        return pivotFinalPosition;
+        
+        int temp = array[i + 1];
+        array[i + 1] = array[end];
+        array[end] = temp;
+        
+        return i + 1;
     }
 }
