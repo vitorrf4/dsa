@@ -1,11 +1,15 @@
 package sorting;
 
-public class Counting extends Sorting {
+public class Counting extends ISorting {
+    public Counting(int[] array) {
+        super(array);
+    }
+
     // Counts the number of ocurrences of each number in the array,
     // maps the value as an index in an auxilary array,
     // and calculates it back to the result
-    public void countingSort(int[] array) {
-        int max = getMax(array);
+    public int[] sort() {
+        int max = getMax();
         int[] result = new int[array.length + 1];
 
         int[] countArray = new int[max + 1];
@@ -23,5 +27,7 @@ public class Counting extends Sorting {
 
         for (int i = 0; i < array.length; i++)
             array[i] = result[i];
+        
+        return array;
     }
 }

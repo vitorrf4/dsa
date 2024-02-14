@@ -1,9 +1,13 @@
 package sorting;
 
-public class Insertion extends Sorting {
+public class Insertion extends ISorting {
+    public Insertion(int[] array) {
+        super(array);
+    }
+
     // Iterates over every value of the array and compares it with its predecessors until it's placed
     // in the appropriated place
-    public void insertionSort(int[] array) {
+    public int[] sort() {
         for (int i = 1; i < array.length; i++) {
             int key = array[i];
             int j = i;
@@ -15,5 +19,6 @@ public class Insertion extends Sorting {
                 j--;
             }
         }
+        return array;
     }
 }

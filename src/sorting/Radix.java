@@ -1,10 +1,18 @@
 package sorting;
 
-public class Radix extends Sorting {
+public class Radix extends ISorting {
+    public Radix(int[] array) {
+        super(array);
+    }
+
     // Sorts the elements by grouping the individual digits of the same
     // decimal place and then sorting them in increasing/decreasing order
-    private void countingRadix(int[] array, int length, int decimalPlace) {
-        int max = getMax(array);
+    public int[] sort() {
+        return countingRadix(array, array.length, 10);
+    }
+    
+    private int[] countingRadix(int[] array, int length, int decimalPlace) {
+        int max = getMax();
         int[] count = new int[max + 1];
         int[] result = new int[length + 1];
 
@@ -21,10 +29,12 @@ public class Radix extends Sorting {
 
         for (int i = 0; i < length; i++)
             array[i] = result[i];
+        
+        return count;
     }
 
     public void radixSort(int[] array) {
-        int max = getMax(array);
+        int max = getMax();
 
         for (int decimalPlace = 1; max / decimalPlace > 0; decimalPlace *= 10) {
             countingRadix(array, array.length, decimalPlace);

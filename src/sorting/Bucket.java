@@ -1,9 +1,19 @@
 package sorting;
 
-public class Bucket extends Sorting {
+public class Bucket extends ISorting {
+    private int range = 10;
+    
+    private Bucket(int[] array) {
+        super(array);
+    }
+    public Bucket(int[] array, int range) {
+        super(array);
+        this.range = range;
+    }
+    
     // Creates buckets with range of values and places the values to be sorted in each bucket
     // corresponding to its range, and then each bucket also has to be sorted
-    public void bucketSort(int[] array, int range) {
+    public int[] sort() {
         int[][] buckets = new int[10][];
         int[] bucketIndexCounting = new int[10];
 
@@ -17,7 +27,7 @@ public class Bucket extends Sorting {
             buckets[rangeIndex][bucketIndex] = number;
         }
 
-        Quick quick = new Quick();
+        Quick quick = new Quick(array);
         // sort each bucket with another algorithm
         for (int[] bucket : buckets) {
             printArray(bucket);
@@ -34,5 +44,6 @@ public class Bucket extends Sorting {
                 }
             }
         }
+        return array;
     }
 }

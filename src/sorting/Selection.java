@@ -1,9 +1,13 @@
 package sorting;
 
-public class Selection extends Sorting {
+public class Selection extends ISorting {
+    public Selection(int[] array) {
+        super(array);
+    }
+
     // Selects the smallest element in the array and compares it with the subsequent
     // values, in the end of the iteration swaps the smallest value to the beginning of the array
-    public void selectionSort(int[] array) {
+    public int[] sort() {
         int swapIndex = 0;
 
         for (int i = 0; i < array.length; i++) {
@@ -22,5 +26,6 @@ public class Selection extends Sorting {
                 array[swapIndex] = aux;
             }
         }
+        return array;
     }
 }

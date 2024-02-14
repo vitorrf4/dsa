@@ -1,17 +1,36 @@
 package sorting;
 
-public class Merge extends Sorting {
+public class Merge extends ISorting {
+    private int end = array.length;
+    private int start = 0;
+
+    private Merge(int[] array) {
+        super(array);
+    }
+    
+    public Merge(int [] array, int start, int end) {
+        super(array);
+        this.start = start;
+        this.end = end;
+    }
+
     // Divides the array in halves recursively into subarrays until they're composed of a single item
     // and then order the values by reassembling the subarrays
     // bottom-up approach
-    public void mergeSort(int[] array, int start, int end) {
+    public int[] sort() {
+        sort(array, 1, array.length);
+        return array;
+    }
+    
+    public int[] sort(int[] array, int start, int end) {
         if (start < end) {
             int middle = (start + end) / 2;
 
-            mergeSort(array, start, middle);
-            mergeSort(array, middle + 1, end);
+            sort(array, start, middle);
+            sort(array, middle + 1, end);
             commentedMerge(array, start, middle, end);
         }
+        return array;
     }
 
     private void merge(int[] array, int start, int middle, int end) {

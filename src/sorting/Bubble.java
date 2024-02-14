@@ -1,8 +1,12 @@
 package sorting;
 
-public class Bubble extends Sorting {
-    // Swaps the bigger values to the end of the array until it's sorted
-    public void bubbleSort(int[] array) {
+public class Bubble extends ISorting {
+    public Bubble(int[] array) {
+        super(array);
+    }
+
+    // Swaps the bigger values to the end of the array until is sorted
+    public int[] sort() {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - 1; j++) {
                 if (array[j] > array[j + 1]) {
@@ -12,9 +16,10 @@ public class Bubble extends Sorting {
                 }
             }
         }
+        return array;
     }
 
-    public void optimizedBubbleSort(int[] array) {
+    public int[] optimizedSort() {
         for (int i = 0; i < array.length - 1; i++) {
             boolean swapped = false;
 
@@ -30,5 +35,6 @@ public class Bubble extends Sorting {
             // has been sorted
             if (!swapped) break;
         }
+        return array;
     }
 }
