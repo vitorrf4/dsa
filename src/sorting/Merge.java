@@ -2,21 +2,14 @@ package sorting;
 
 public class Merge extends ISorting {
     private boolean commentMerging = false;
-    private int end = array.length;
-    private int start = 0;
+    private final int end = array.length - 1;
 
-    private Merge(int[] array) {
+    public Merge(int[] array) {
         super(array);
     }
     
-    public Merge(int [] array, int start, int end) {
-        super(array);
-        this.start = start;
-        this.end = end;
-    }
-    
-    public Merge(int [] array, int start, int end, boolean commentMerging) {
-       this(array, start, end);
+    public Merge(int [] array, boolean commentMerging) {
+       super(array);
        this.commentMerging = commentMerging;
     }
 
@@ -24,11 +17,12 @@ public class Merge extends ISorting {
     // and then order the values by reassembling the subarrays
     // bottom-up approach
     public int[] sort() {
+        int start = 0;
         sort(array, start, end);
         return array;
     }
     
-    public int[] sort(int[] array, int start, int end) {
+    public void sort(int[] array, int start, int end) {
         if (start < end) {
             int middle = (start + end) / 2;
 
@@ -36,10 +30,8 @@ public class Merge extends ISorting {
             sort(array, middle + 1, end);
             merge(array, start, middle, end);
         }
-        return array;
     }
-
-
+    
     private void merge(int[] array, int start, int middle, int end) {
         int[] subA1 = new int[(middle - start + 1)];
         int[] subB2 = new int[(end - middle)];
