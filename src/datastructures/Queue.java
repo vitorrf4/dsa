@@ -1,19 +1,20 @@
 package datastructures;
 
-public class Queue {
-    private final Integer[] items;
+public class Queue<T> {
+    private final T[] items;
     private int front;
     private int rear;
 
     public Queue(int size) {
-        items = new Integer[size];
+        items = (T[]) new Object[size];
         front = -1;
         rear = -1;
     }
 
-    public boolean enqueue(int newItem) {
+    // Inserts the specified element into this queue
+    public boolean enqueue(T newItem) {
         if (isFull())
-            return false;
+            throw new IllegalStateException("Queue is full");
 
         items[++rear] = newItem;
         if (rear == 0) front = 0;
@@ -21,12 +22,13 @@ public class Queue {
         return true;
     }
 
-    public Integer dequeue() {
+    // Retrieves and removes the head of this queue
+    public T dequeue() {
         if (isEmpty())
-            return null;
+            throw new IllegalStateException("Queue is empty");
 
         if (front >= rear) {
-            int item = items[front];
+            T item = items[front];
             front = -1;
             rear = -1;
             return item;
@@ -35,18 +37,26 @@ public class Queue {
         return items[front++];
     }
 
+    // Tests if this queue is empty
     public boolean isEmpty() {
         return front == -1;
     }
 
+    // Tests if this queue is full
     public boolean isFull() {
         return rear == items.length - 1;
     }
 
-    public Integer peek() {
+    // Retrieves, but does not remove, the head of this queue
+    public T peek() {
         if (isEmpty())
-            return null;
+            throw new IllegalStateException("Queue is empty");
 
         return items[front];
+    }
+
+    // Returns the number of elements in this queue
+    public int size() {
+        return rear - front + 1;
     }
 }
