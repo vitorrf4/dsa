@@ -3,7 +3,7 @@ package sorting;
 import java.util.Arrays;
 
 public abstract class BaseSorting {
-    public int[] array;
+    protected final int[] array;
     
     public BaseSorting(int[] array) {
         this.array = array;    
