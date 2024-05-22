@@ -6,7 +6,7 @@ public class Bubble extends ISorting {
     }
 
     // Swaps the bigger values to the end of the array until is sorted
-    public int[] sort() {
+    public void sort() {
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - 1; j++) {
                 if (array[j] > array[j + 1]) {
@@ -16,7 +16,6 @@ public class Bubble extends ISorting {
                 }
             }
         }
-        return array;
     }
 
     public int[] optimizedSort() {

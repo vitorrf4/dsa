@@ -7,7 +7,7 @@ public class Insertion extends ISorting {
 
     // Iterates over every value of the array and compares it with its predecessors until it's placed
     // in the appropriated place
-    public int[] sort() {
+    public void sort() {
         for (int i = 1; i < array.length; i++) {
             int key = array[i];
             int j = i;
@@ -19,6 +19,5 @@ public class Insertion extends ISorting {
                 j--;
             }
         }
-        return array;
     }
 }

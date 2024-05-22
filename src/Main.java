@@ -2,9 +2,9 @@ import sorting.*;
 
 public class Main {
     public static void main(String[] args) {
-        var array = createRandomIntArray(10000);
+        var array = createRandomIntArray(100000);
 
-        var sortAlghorithm = new Merge(array);
+        var sortAlghorithm = new Counting(array);
         var time = sortAlghorithm.sortAndGetDurationInMs();
 
         System.out.println("Is sorted: " + sortAlghorithm.IsSorted());

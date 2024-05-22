@@ -7,7 +7,7 @@ public class Selection extends ISorting {
 
     // Selects the smallest element in the array and compares it with the subsequent
     // values, in the end of the iteration swaps the smallest value to the beginning of the array
-    public int[] sort() {
+    public void sort() {
         int swapIndex = 0;
 
         for (int i = 0; i < array.length; i++) {
@@ -26,6 +26,5 @@ public class Selection extends ISorting {
                 array[swapIndex] = aux;
             }
         }
-        return array;
     }
 }

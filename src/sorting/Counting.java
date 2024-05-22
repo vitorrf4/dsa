@@ -8,7 +8,7 @@ public class Counting extends ISorting {
     // Counts the number of ocurrences of each number in the array,
     // maps the value as an index in an auxilary array,
     // and calculates it back to the result
-    public int[] sort() {
+    public void sort() {
         int max = getMax();
         int[] result = new int[array.length + 1];
 
@@ -27,7 +27,5 @@ public class Counting extends ISorting {
 
         for (int i = 0; i < array.length; i++)
             array[i] = result[i];
-        
-        return array;
     }
 }

@@ -52,5 +52,5 @@ public abstract class ISorting {
         System.out.println();
     }
     
-    public abstract int[] sort();
+    public abstract void sort();
 }

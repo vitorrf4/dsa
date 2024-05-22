@@ -9,11 +9,11 @@ public class Quick extends ISorting {
     // and the larger ones to its right
     // top-down approach
     @Override
-    public int[] sort() {
-        return quickSort(array, 0, array.length - 1);
+    public void sort() {
+        quickSort(array, 0, array.length - 1);
     }
 
-    public int[] quickSort(int[] array, int start, int end) {
+    public void quickSort(int[] array, int start, int end) {
         if (start < end) {
             int pivot = partition(array, start, end);
 
@@ -21,7 +21,6 @@ public class Quick extends ISorting {
             quickSort(array, pivot + 1, end);
 
         }
-        return array;
     }
 
     private int partition(int[] array, int start, int end) {

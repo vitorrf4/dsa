@@ -16,10 +16,9 @@ public class Merge extends ISorting {
     // Divides the array in halves recursively into subarrays until they're composed of a single item
     // and then order the values by reassembling the subarrays
     // bottom-up approach
-    public int[] sort() {
+    public void sort() {
         int start = 0;
         sort(array, start, end);
-        return array;
     }
     
     public void sort(int[] array, int start, int end) {

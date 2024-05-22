@@ -7,17 +7,16 @@ public class Radix extends ISorting {
 
     // Sorts the elements by grouping the individual digits of the same
     // decimal place and then sorting them in increasing/decreasing order
-    public int[] sort() {
-        return radixSort(array);
+    public void sort() {
+        radixSort(array);
     }
 
-    private int[] radixSort(int[] array) {
+    private void radixSort(int[] array) {
         int max = getMax();
 
         for (int decimalPlace = 1; max / decimalPlace > 0; decimalPlace *= 10) {
             countingRadix(array, array.length, decimalPlace);
         }
-        return array;
     }
     
     private void countingRadix(int[] array, int length, int exponent) {

@@ -12,7 +12,7 @@ public class Bucket extends ISorting {
     
     // Creates buckets with range of values and places the values to be sorted in each bucket
     // corresponding to its range, and then each bucket also has to be sorted
-    public int[] sort() {
+    public void sort() {
         int[][] buckets = new int[range][];
         int[] bucketIndexCounting = new int[range];
 
@@ -43,6 +43,5 @@ public class Bucket extends ISorting {
                 }
             }
         }
-        return array;
     }
 }
