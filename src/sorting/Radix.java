@@ -1,6 +1,6 @@
 package sorting;
 
-public class Radix extends ISorting {
+public class Radix extends BaseSorting {
     public Radix(int[] array) {
         super(array);
     }

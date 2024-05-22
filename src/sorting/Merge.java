@@ -1,6 +1,6 @@
 package sorting;
 
-public class Merge extends ISorting {
+public class Merge extends BaseSorting {
     private boolean commentMerging = false;
     private final int end = array.length - 1;
 

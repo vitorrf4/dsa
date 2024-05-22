@@ -1,6 +1,6 @@
 package sorting;
 
-public class Selection extends ISorting {
+public class Selection extends BaseSorting {
     public Selection(int[] array) {
         super(array);
     }

@@ -1,6 +1,6 @@
 package sorting;
 
-public class Quick extends ISorting {
+public class Quick extends BaseSorting {
     public Quick(int[] array) {
         super(array);
     } 

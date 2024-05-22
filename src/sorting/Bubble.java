@@ -1,6 +1,6 @@
 package sorting;
 
-public class Bubble extends ISorting {
+public class Bubble extends BaseSorting {
     public Bubble(int[] array) {
         super(array);
     }

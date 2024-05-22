@@ -1,6 +1,6 @@
 package sorting;
 
-public class Bucket extends ISorting {
+public class Bucket extends BaseSorting {
     private int range = 10;
     private Bucket(int[] array) {
         super(array);
