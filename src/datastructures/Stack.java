@@ -1,6 +1,8 @@
 package datastructures;
 
-public class Stack<T> {
+import java.util.Iterator;
+
+public class Stack<T> implements Iterable<T> {
     private final T[] items;
     private int top;
 
@@ -51,5 +53,25 @@ public class Stack<T> {
     // Returns the number of elements in this stack
     public int size() {
         return top + 1;
+    }
+
+    // Returns an iterator over elements of type T
+    @Override
+    public Iterator<T> iterator() {
+        return new StackIterator();
+    }
+
+    private class StackIterator implements Iterator<T> {
+        private int current = top;
+
+        @Override
+        public boolean hasNext() {
+            return current >= 0;
+        }
+
+        @Override
+        public T next() {
+            return items[current--];
+        }
     }
 }

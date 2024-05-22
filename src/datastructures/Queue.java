@@ -1,6 +1,8 @@
 package datastructures;
 
-public class Queue<T> {
+import java.util.Iterator;
+
+public class Queue<T> implements Iterable<T>{
     private final T[] items;
     private int front;
     private int rear;
@@ -58,5 +60,25 @@ public class Queue<T> {
     // Returns the number of elements in this queue
     public int size() {
         return rear - front + 1;
+    }
+
+    // Returns an iterator over elements of type T
+    @Override
+    public Iterator<T> iterator() {
+        return new QueueIterator();
+    }
+
+    private class QueueIterator implements Iterator<T> {
+        private int current = front;
+
+        @Override
+        public boolean hasNext() {
+            return current <= rear;
+        }
+
+        @Override
+        public T next() {
+            return items[current++];
+        }
     }
 }

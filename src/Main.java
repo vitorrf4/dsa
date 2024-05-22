@@ -3,10 +3,10 @@ import sorting.*;
 public class Main {
     public static void main(String[] args) {
         var array = createRandomIntArray(10000);
-        
+
         var sortAlghorithm = new Merge(array);
         var time = sortAlghorithm.sortAndGetDurationInMs();
-        
+
         System.out.println("Is sorted: " + sortAlghorithm.IsSorted());
         System.out.println("Sorting took " + time + " miliseconds");
     }
